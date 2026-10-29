@@ -21,7 +21,7 @@ class AnimeCard extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         context.push('${AppRoutes.details}/$id');
       },
       child: LayoutBuilder(
@@ -33,7 +33,6 @@ class AnimeCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
                 // Image section - takes most of the space
                 Expanded(
                   flex: 8,
@@ -47,7 +46,6 @@ class AnimeCard extends StatelessWidget {
                     ),
                   ),
                 ),
-
 
                 // Title section - compact but readable
                 Expanded(
@@ -74,7 +72,6 @@ class AnimeCard extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             ),
           );

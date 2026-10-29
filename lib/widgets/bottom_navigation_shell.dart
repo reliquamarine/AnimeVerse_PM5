@@ -1,4 +1,4 @@
-import 'package:modul_2/config/routes.dart';
+import 'package:anime_verse/config/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

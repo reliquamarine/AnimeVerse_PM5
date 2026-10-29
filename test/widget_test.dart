@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:modul_2/main.dart'; // Importing MyApp for testing
+import 'package:anime_verse/main.dart';
 
 void main() {
   testWidgets('app starts successfully', (WidgetTester tester) async {

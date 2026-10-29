@@ -10,7 +10,9 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width
+        .clamp(0.0, 400.0)
+        .toDouble();
     final screenHeight = MediaQuery.of(context).size.height;
     return AppScaffold(
       body: LayoutBuilder(
@@ -27,6 +29,7 @@ class SignInScreen extends StatelessWidget {
                   children: [
                     // konten sign-in berada di sini
                     SizedBox(height: screenHeight * 0.1),
+
                     SizedBox(height: screenHeight * 0.04),
 
                     // Signin Title
@@ -243,8 +246,9 @@ class SignInScreen extends StatelessWidget {
                     SizedBox(height: screenHeight * 0.04),
 
                     // Sign up link
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
                         Text(
                           "Don't have an account? ",

@@ -10,7 +10,9 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width
+        .clamp(0.0, 400.0)
+        .toDouble();
     final screenHeight = MediaQuery.of(context).size.height;
     return AppScaffold(
       body: LayoutBuilder(
@@ -195,8 +197,7 @@ class SignUpScreen extends StatelessWidget {
                       width: double.infinity,
                       height: screenHeight * 0.075,
                       child: ElevatedButton.icon(
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                         icon: SvgPicture.asset(
                           'assets/images/google_icon.svg',
                           height: screenWidth * 0.06,
@@ -226,8 +227,9 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(height: screenHeight * 0.04),
 
                     // Sign in link
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
                         Text(
                           "Already have an account? ",

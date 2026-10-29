@@ -1,13 +1,13 @@
+import 'package:anime_verse/screens/favorite_screen.dart';
+import 'package:anime_verse/screens/home_screen.dart';
+import 'package:anime_verse/screens/profile_screen.dart';
+import 'package:anime_verse/screens/signin_screen.dart';
+import 'package:anime_verse/screens/signup_screen.dart';
+import 'package:anime_verse/widgets/bottom_navigation_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:modul_2/screens/detail_screen.dart';
-import 'package:modul_2/screens/favorite_screen.dart';
-import 'package:modul_2/screens/home_screen.dart';
-import 'package:modul_2/screens/profile_screen.dart';
-import 'package:modul_2/screens/signin_screen.dart';
-import 'package:modul_2/screens/signup_screen.dart';
-import 'package:modul_2/widgets/bottom_navigation_shell.dart';
+import '../screens/detail_screen.dart';
 
 class AppRoutes {
   static const String signIn = '/sign-in';
@@ -21,11 +21,10 @@ class AppRoutes {
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 GoRouter createRouter() {
+  // routes.dart
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoutes.signIn,
-    debugLogDiagnostics:
-        true, // Opsional: Untuk melihat log navigasi di console
     routes: [
       // 1. Auth Routes
       GoRoute(
@@ -39,7 +38,7 @@ GoRouter createRouter() {
         builder: (context, state) => const SignUpScreen(),
       ),
 
-      // 2. Detail Route (Menggunakan Path Parameter :id)
+      // 2. Detail Route
       GoRoute(
         path: '${AppRoutes.details}/:id',
         name: 'detail',
@@ -50,7 +49,7 @@ GoRouter createRouter() {
         },
       ),
 
-      // 3. ShellRoute untuk Bottom Navigation Bar
+      // 3. ShellRoute (Untuk Halaman yang menggunakan Bottom Navigation Bar)
       StatefulShellRoute.indexedStack(
         builder: (context, state, child) {
           return BottomNavigationShell(navigationShell: child);
